@@ -5,12 +5,14 @@ ruby '2.5.3'
 
 gem 'pg'
 
+gem 'sendgrid-ruby'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
+gem 'figaro'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
@@ -25,6 +27,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+group :production do
+ # Use pg as the production database for Active Record
+  gem 'rails_12factor'
+end
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -34,6 +41,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.7'
+  gem 'rails-controller-testing'
+  gem 'better_errors'
 end
 
 group :development do
